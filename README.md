@@ -1,7 +1,7 @@
 # spring-cloud-eureka
 spring-cloud-eureka服务注册中心示例
 
-pom文件加以下maven依赖包：
+1、pom文件加以下maven依赖包：
 <dependencies>
 
         <dependency>
@@ -31,7 +31,7 @@ pom文件加以下maven依赖包：
         </dependency>
  </dependencies>
  
-配置文件application.yml加以下配置：
+2、配置文件application.yml加以下配置：
 server:
   port: 8761
   tomcat:
@@ -48,12 +48,11 @@ eureka:
     service-url:
       defaultZone: http://localhost:${server.port}/eureka/
 
-spring:
-  application:
-    name: spring-cloud-eureka
+        spring:
+          application:
+            name: spring-cloud-eureka
 	
-	
-EurekaApplication.java文件加注解@EnableEurekaServer
+	3、EurekaApplication.java文件加注解@EnableEurekaServer
 
-启动项目访问http://localhost:8761/
+        启动项目访问http://localhost:8761/
 
