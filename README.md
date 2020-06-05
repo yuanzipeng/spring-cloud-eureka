@@ -32,27 +32,28 @@ spring-cloud-eureka服务注册中心示例
  </dependencies>
  
 2、配置文件application.yml加以下配置：
-server:
-  port: 8761
-  tomcat:
-    uri-encoding: utf-8
 
-eureka:
-  instance:
-    hostname: localhost
-    # 优先使用IP地址方式进行注册服务
-    prefer-ip-address: true
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-    service-url:
-      defaultZone: http://localhost:${server.port}/eureka/
+     server:
+       port: 8761
+         tomcat:
+            uri-encoding: utf-8
+
+     eureka:
+       instance:
+         hostname: localhost
+           # 优先使用IP地址方式进行注册服务
+           prefer-ip-address: true
+        client:
+           register-with-eureka: false
+           fetch-registry: false
+           service-url:
+              defaultZone: http://localhost:${server.port}/eureka/
 
         spring:
           application:
             name: spring-cloud-eureka
 	
-	3、EurekaApplication.java文件加注解@EnableEurekaServer
+3、EurekaApplication.java文件加注解@EnableEurekaServer
 
-        启动项目访问http://localhost:8761/
+启动项目访问http://localhost:8761/
 
