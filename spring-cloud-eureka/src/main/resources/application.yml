@@ -8,17 +8,25 @@ server:
 eureka:
   instance:
     hostname: localhost
-    prefer-ip-address: true   # 优先使用IP地址方式进行注册服务
+    # 优先使用IP地址方式进行注册服务
+    prefer-ip-address: true
     appname: ${spring.application.name}
+    # 表示eureka client发送心跳给server端的频率
     leaseRenewalIntervalInSeconds: 10
+    # 表示eureka server至上一次收到client的心跳之后，等待下一次心跳的超时时间，
+    # 在这个时间内若没收到下一次心跳，则将移除该instance (缺省为90*1000ms)
     leaseExpirationDurationInSeconds: 30
 
   server:
+    # 关闭自我保护模式（缺省为打开）
     enableSelfPreservation: false
+    # 续期时间，即扫描失效服务的间隔时间（缺省为60*1000ms）
     evictionIntervalTimerInMs: 4000
 
   client:
+    # 是否注册自己
     register-with-eureka: true
+    # 要不要去注册中心获取其他服务的地址
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8762/eureka,http://localhost:8763/eureka
